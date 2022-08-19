@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="card col-md-6 offset-md-3 offset-md-3">
+        <div class="row">
+            <h4 class="text-center">Create Agency </h4>
+            <hr />
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit()">
+                    
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="agency.name"
+                            name="name">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Country</label>
+                        <input type="text" class="form-control" id="country" [(ngModel)]="agency.country"
+                            name="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Country Code</label>
+                        <input type="text" class="form-control" id="countryCode" [(ngModel)]="agency.countryCode"
+                            name="countryCode">
+                    </div>
+
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control" id="city" [(ngModel)]="agency.city"
+                            name="city">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Street</label>
+                        <input type="text" class="form-control" id="street" [(ngModel)]="agency.street"
+                            name="street">
+                    </div>
+                    <div class="form-group">
+                        <label>Settlement Currency</label>
+                        <input type="text" class="form-control" id="currency" [(ngModel)]="agency.currency"
+                            name="currency">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Person</label>
+                        <input type="text" class="form-control" id="contact" [(ngModel)]="agency.contact"
+                            name="contact">
+                    </div>
+                    <br />
+                    <button class="btn btn-success" type="submit">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
