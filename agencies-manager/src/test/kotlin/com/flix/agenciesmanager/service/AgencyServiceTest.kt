@@ -18,7 +18,7 @@ import org.testcontainers.containers.MongoDBContainer
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 
-@Testcontainers
+@Testcontainers(disabledWithoutDocker = true)
 @DataMongoTest
 internal class AgencyServiceTest @Autowired constructor(
     private val agencyRepository: AgencyRepository, private val mongoTemplate: MongoTemplate
