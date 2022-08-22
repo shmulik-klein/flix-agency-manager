@@ -1,11 +1,12 @@
 package com.flix.agenciesmanager.controller
 
-import com.flix.agenciesmanager.AgencyService
+import com.flix.agenciesmanager.service.AgencyService
 import com.flix.agenciesmanager.model.Agency
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
-import javax.websocket.server.PathParam
 
 @RestController
 @RequestMapping("/api/v1/agencies")
@@ -37,4 +37,9 @@ class AgencyController(val agencyService: AgencyService) {
 
     @DeleteMapping("/{id}")
     fun deleteAgency(@PathVariable id: String) = agencyService.removeAgency(id)
+
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun handleIllegalArgumentException(exception: IllegalArgumentException): ResponseEntity<String> {
+        return ResponseEntity.badRequest().body(exception.message)
+    }
 }

@@ -1,14 +1,18 @@
 package com.flix.agenciesmanager.model
 
-import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
 /**
- * Represents an agency
+ * Represents a Flix agency
  *
- * TODO: countryCode should be refactored to IsoCountryCode.java
- * TODO: currency should be refactored to Currency.java
+ * @param id internal identifier of the agency in the application
+ * @param name name of the agency
+ * @param country name of the country in which the agency resides
+ * @param countryCode an ISO3166-1 alpha-3 three letter country code
+ * @param city name of the city in which the agency resides
+ * @param street name of the street in which the agency resides
+ * @param currency currency code (ISO 4217) to apply to the settlement
  */
 @Document
 data class Agency(
